@@ -8,17 +8,22 @@
 Summary:	Exporter::Tiny - an exporter with the features of Sub::Exporter but only core dependencies
 Summary(pl.UTF-8):	Exporter::Tiny - eksporter o możliwościach Sub::Exportera, ale bez dużych zależności
 Name:		perl-Exporter-Tiny
-Version:	0.042
+Version:	1.002001
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Exporter/Exporter-Tiny-%{version}.tar.gz
-# Source0-md5:	77ba432037f35bc9b84b717639075fc6
+# Source0-md5:	e33f25f7556f5f5264a92cb9870d0eac
 URL:		http://search.cpan.org/dist/Exporter-Tiny/
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.17
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+BuildRequires:	perl-Test-Fatal
+BuildRequires:	perl-Test-Simple >= 0.47
+BuildRequires:	perl-Test-Warnings
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,14 +70,17 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorlib}/Exporter/Tiny/Manual/*.pod
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CONTRIBUTING COPYRIGHT CREDITS Changes
+%doc COPYRIGHT CREDITS Changes TODO
 %{perl_vendorlib}/Exporter/Shiny.pm
 %{perl_vendorlib}/Exporter/Tiny.pm
 %{_mandir}/man3/Exporter::Shiny.3pm*
 %{_mandir}/man3/Exporter::Tiny.3pm*
+%{_mandir}/man3/Exporter::Tiny::Manual::*.3pm*
 %{_examplesdir}/%{name}-%{version}
