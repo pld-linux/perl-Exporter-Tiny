@@ -4,7 +4,6 @@
 #
 %define		pdir	Exporter
 %define		pnam	Tiny
-%include	/usr/lib/rpm/macros.perl
 Summary:	Exporter::Tiny - an exporter with the features of Sub::Exporter but only core dependencies
 Summary(pl.UTF-8):	Exporter::Tiny - eksporter o możliwościach Sub::Exportera, ale bez dużych zależności
 Name:		perl-Exporter-Tiny
