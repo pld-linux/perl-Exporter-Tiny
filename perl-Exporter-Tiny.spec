@@ -7,17 +7,18 @@
 Summary:	Exporter::Tiny - an exporter with the features of Sub::Exporter but only core dependencies
 Summary(pl.UTF-8):	Exporter::Tiny - eksporter o możliwościach Sub::Exportera, ale bez dużych zależności
 Name:		perl-Exporter-Tiny
-Version:	1.002001
+Version:	1.002002
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Exporter/Exporter-Tiny-%{version}.tar.gz
-# Source0-md5:	e33f25f7556f5f5264a92cb9870d0eac
-URL:		http://search.cpan.org/dist/Exporter-Tiny/
+# Source0-md5:	485897322a2514b4d6ca90b2daacb7cd
+URL:		https://metacpan.org/release/List-MoreUtils
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.17
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl-Test-Fatal
 BuildRequires:	perl-Test-Simple >= 0.47
@@ -66,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} pure_install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_examplesdir}
 cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__rm} $RPM_BUILD_ROOT%{perl_vendorlib}/Exporter/Tiny/Manual/*.pod
