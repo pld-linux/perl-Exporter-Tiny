@@ -1,20 +1,20 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	Exporter
 %define		pnam	Tiny
 Summary:	Exporter::Tiny - an exporter with the features of Sub::Exporter but only core dependencies
 Summary(pl.UTF-8):	Exporter::Tiny - eksporter o możliwościach Sub::Exportera, ale bez dużych zależności
 Name:		perl-Exporter-Tiny
-Version:	1.002002
+Version:	1.006002
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Exporter/Exporter-Tiny-%{version}.tar.gz
-# Source0-md5:	485897322a2514b4d6ca90b2daacb7cd
-URL:		https://metacpan.org/release/List-MoreUtils
+Source0:	https://www.cpan.org/modules/by-module/Exporter/Exporter-Tiny-%{version}.tar.gz
+# Source0-md5:	0545ee8f4edcb9dc5a87b21ed25edd74
+URL:		https://metacpan.org/dist/List-MoreUtils
 BuildRequires:	perl-ExtUtils-MakeMaker >= 6.17
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
